@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <!-- 글꼴 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+    <style>
+        body { background: linear-gradient(#EEF1FF, #8fa3fc); }
+      .navbar { background-color: #000000;}
+      *{
+        font-family: 'Do Hyeon', sans-serif;
+      }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">Home</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+            <ul class="navbar-nav">
+              <a class="nav-link active" href="/area">Predict</a>
+              <a class="nav-link active " href="/dashboard">Dashboard</a>
+              <a class="nav-link" href="https://github.com/kimkyeongdong">Ayaan Github</a>
+
+            </ul>
+          </div>
+        </div>
+      </nav>
+    <br/>
+    <main class="mx-auto my-auto px-5" style="max-width: 1200px;" >
+        <figure class="text-center">
+            <h1> 수질 예측</h1><br>
+        </figure>
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <div>
+                <h3> 지역을 입력하세요</h3><br>
+                <h6> 없는 값 입력시 에러 </h6>
+                    <form method="POST" action="/area/result1">
+                        <div class="form-floating mb-3 shadow p-1 mb-3 bg-body rounded " style="width: 300px;">
+                            <!-- 정규표현식을 써서 특정 패턴이 아닌경우 입력안되게 -->
+                            <input type="text" name="AREA" class="form-control" id="floatingInput" placeholder="금강" required>
+                            <label for="floatingInput"> 지역 </label>
+                        </div>
+                        <br/>
+                        <div class='button px-5'>
+                            <button class="btn btn-primary" type="submit" style="width: 200px;">Predict</button>
+                        </div>
+                    </form>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <img class="rounded-3" src="https://mblogthumb-phinf.pstatic.net/20131124_53/ilove_water_1385274627886nzRgl_JPEG/%BE%C6%B8%AE%BF%CD_%BC%F6%B8%AE.jpg?type=w2" width="70%" height="230px">
+                </div>
+            </div>
+        <div class="col-6">
+            <div class="px-5">
+                <h3> 각 수치를 입력하세요</h3><br>
+                <h6> 정수나 소수점 형태</h6>
+                    <form method="POST" action="/area/result">
+                        <div class="form-floating mb-3 shadow p-1 mb-3 bg-body rounded" style="width: 300px;">
+                            <input type="float" name="PH" class="form-control" id="floatingInput" placeholder="8.2" required>
+                            <label for="floatingInput"> PH(수소이온농도) </label>
+                        </div>
+                        <br/>
+                        <div class="form-floating mb-3 shadow p-1 mb-3 bg-body rounded" style="width: 300px;">
+                            <input type="float" name="COD" class="form-control" id="floatingInput" placeholder="2.0" required>
+                            <label for="floatingInput"> COD(화학적산소요구량) </label>
+                        </div>
+                        <br/>
+                        <div class="form-floating mb-3 shadow p-1 mb-3 bg-body rounded" style="width: 300px;">
+                            <input type="float" name="TOC" class="form-control" id="floatingInput" placeholder="2.0" required>
+                            <label for="floatingInput"> TOC(총유기탄소량) </label>
+                        </div>
+                        <br/>
+                        <div class="form-floating mb-3 shadow p-1 mb-3 bg-body rounded" style="width: 300px;">
+                            <input type="float" name="SS" class="form-control" id="floatingInput" placeholder="2.0" required>
+                            <label for="floatingInput"> SS(부유물질량) </label>
+                        </div>
+                        <br/>
+                        <div class="form-floating mb-3 shadow p-1 mb-3 bg-body rounded" style="width: 300px;">
+                            <input type="float" name="DOC" class="form-control" id="floatingInput" placeholder="2.0" required>
+                            <label for="floatingInput"> DOC(용존유기탄소) </label>
+                        </div>
+                        <br/>
+                        <div class="form-floating mb-3 shadow p-1 mb-3 bg-body rounded" style="width: 300px;">
+                            <input type="float" name="TP" class="form-control" id="floatingInput" placeholder="2.0" required>
+                            <label for="floatingInput"> TP(총인) </label>
+                        </div>
+                        <br/>
+                        <div class="form-floating mb-3 shadow p-1 mb-3 bg-body rounded" style="width: 300px;">
+                            <input type="float" name="TCOLI" class="form-control" id="floatingInput" placeholder="400" required>
+                            <label for="floatingInput"> TCOLI(총대장균군) </label>
+                        </div>
+                        <br/>
+                        <div class="form-floating mb-3 shadow p-1 mb-3 bg-body rounded" style="width: 300px;">
+                            <input type="float" name="ECOLI" class="form-control" id="floatingInput" placeholder="400" required>
+                            <label for="floatingInput"> ECOLI(분원성대장균군) </label>
+                        </div>
+                        <br/>
+                        <div class='button px-5'>
+                            <button class="btn btn-primary" type="submit" style="width: 200px;">Predict</button>
+                        </div>
+                        <br/>
+                    </form>
+        </div>
+    </div>
+    </div>
+    </main>
+    </body>
+</html>
